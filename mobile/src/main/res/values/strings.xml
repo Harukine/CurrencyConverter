@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Currency Converter</string>
+    <string name="action_settings">Settings</string>
+
+    //Main activity text
+    <string name="activity_title">Currency Converter</string>
+    <string name="input_value">From</string>
+    <string name="output_value">To</string>
+    <string name="result_value">Result</string>
+
+    //Main activity buttons
+    <string name="input_btn">Change from</string>
+    <string name="output_btn">Change to</string>
+    <string name="convert_btn">Convert Currency</string>
+
+</resources>
