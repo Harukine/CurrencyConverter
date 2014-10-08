@@ -53,6 +53,6 @@ dependencies {
 apt {
     arguments {
         androidManifestFile variant.processResources.manifestFile
-        resourcePackageName 'com.harukine.currencyconverter'
+        resourcePackageName 'com.harukine.currencyconverter.currencyconverter'
     }
 }
