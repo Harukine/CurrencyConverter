@@ -2,13 +2,72 @@ package com.harukine.currencyconverter.currencyconverter;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.androidannotations.annotations.App;
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.UiThread;
+import org.androidannotations.annotations.ViewById;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
+
+    @ViewById
+    EditText from, to;
+
+    @ViewById
+    TextView result;
+
+    @App
+    Application app;
+
+    @Click
+    public void doConversion() {
+        // Get the currencies from the EditTexts
+        requestConversion(from.getText().toString(), to.getText().toString());
+    }
+
+    @Background
+    public void requestConversion(String from, final String to) {
+        // Request the conversion on the service
+        app.service.convertCurrentCurrency(from,
+                new Callback<CurrencyRates>() {
+
+                    @Override
+                    public void success(CurrencyRates rates, Response response) {
+
+                        for (CurrencyRates.Rate rate : rates.rates) {
+                            if (to.equalsIgnoreCase(rate.to)) {
+                                showResult(rate.rate);
+                                return;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Log.e("MainActivity", "Failure: " + error.toString());
+                    }
+                });
+    }
+
+    @UiThread
+    public void showResult(Float rate) {
+        if (rate != null) {
+            result.setText("Rate: " + rate.toString());
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
