@@ -22,7 +22,6 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/from"
         android:layout_below="@+id/activity_title"
@@ -30,12 +29,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/to"
         android:layout_alignEnd="@+id/to"
-        android:hint="@string/input_value" />
+        android:hint="@string/input_value"
+        android:inputType="text" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
+        android:inputType="text"
         android:ems="10"
         android:id="@+id/to"
         android:layout_below="@+id/from"
