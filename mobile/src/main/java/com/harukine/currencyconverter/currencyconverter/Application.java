@@ -20,6 +20,8 @@ public class Application extends android.app.Application {
                     public void intercept(RequestFacade request){
                         request.addQueryParam("apikey", "2C5F64E8B7B1073C43EBC50BAE01A587");
                     }
+
+
                 }).build();
 
         service = adapter.create(APIService.class);
