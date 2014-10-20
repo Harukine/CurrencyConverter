@@ -24,13 +24,11 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/from"
-        android:layout_below="@+id/activity_title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/to"
-        android:layout_alignEnd="@+id/to"
         android:hint="@string/input_value"
-        android:inputType="text" />
+        android:inputType="text"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -48,7 +46,7 @@
         android:layout_height="wrap_content"
         android:text="@string/convert_btn"
         android:id="@+id/doConversion"
-        android:layout_below="@+id/to"
+        android:layout_below="@+id/tospin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -64,5 +62,25 @@
         android:layout_alignRight="@+id/doConversion"
         android:layout_alignEnd="@+id/doConversion"
         android:focusableInTouchMode="true" />
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fromspin"
+        android:entries="@array/currency_array"
+        android:prompt="@string/currency_prompt"
+        android:layout_below="@+id/activity_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tospin"
+        android:prompt="@array/currency_array"
+        android:layout_below="@+id/fromspin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>
